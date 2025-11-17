@@ -109,6 +109,33 @@
         transition: all 0.3s ease;
       }
       
+      /* Language Toggle Button */
+      .language-toggle-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 16px;
+        z-index: 100;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      .language-toggle-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+      }
+      
     </style>
 
     
@@ -120,11 +147,11 @@
       <div class="stars-background" id="stars-bg"></div>
       <div class="loading-content">
         <div class="moon-loader"></div>
-        <div class="loading-text">Welcome to Soufiane Portfolio</div>
+        <div class="loading-text" data-en="Welcome to Soufiane Portfolio" data-fr="Bienvenue au Portfolio de Soufiane">Welcome to Soufiane Portfolio</div>
         <div class="progress-container">
           <div class="progress-fill" id="progress-fill"></div>
         </div>
-        <button id="enter-btn">LOADING...</button>
+        <button id="enter-btn" data-en="LOADING..." data-fr="CHARGEMENT...">LOADING...</button>
       </div>
     </div>
 
@@ -138,22 +165,29 @@
     <!-------------------->
     <div class="about model">
       <div class="container">
-        <div class="section section1 active" data-sub="section1"><span>Background</span><img src="/icon/Morbius.png" alt="icon" class="section-icon" /> </div>
-        <div class="section section2" data-sub="section2"><span>Formations</span><img src="/icon/LevelUp.png" alt="icon" class="section-icon" /></div>
-        <div class="section section3" data-sub="section3"><span>Career</span><img src="/icon/HeavensEye.png" alt="icon" class="section-icon" /></div>
+        <div class="section section1 active" data-sub="section1"><span data-en="Background" data-fr="Historique">Background</span><img src="/icon/Morbius.png" alt="icon" class="section-icon" /> </div>
+        <div class="section section2" data-sub="section2"><span data-en="Formations" data-fr="Formations">Formations</span><img src="/icon/LevelUp.png" alt="icon" class="section-icon" /></div>
+        <div class="section section3" data-sub="section3"><span data-en="Career" data-fr="Carrière">Career</span><img src="/icon/HeavensEye.png" alt="icon" class="section-icon" /></div>
       </div>
 
 
   <!-- Section 1 sub-sections -->
       <div class="sub-section-group active" data-for="section1">
         <div class="sub-section sub-active">
-          <div class="sub-section-title"> Le Me <img src="/icon/Morbius.png" alt="icon" class="subsection-icon" /> </div>
+          <div class="sub-section-title" data-en="Le Me" data-fr="À Propos"> Le Me <img src="/icon/Morbius.png" alt="icon" class="subsection-icon" /> </div>
 
           <div class="sub-section-text">
-            <p>Hi, I’m Tayebi Soufiane.</p>
-            <p>I’m a high-end technology enthusiast passionate about combining AI, robotics, and 3D skills. 
+            <p data-en="Hi, I'm Tayebi Soufiane." data-fr="Bonjour, je suis Tayebi Soufiane.">Hi, I'm Tayebi Soufiane.</p>
+            <p data-en="I'm a high-end technology enthusiast passionate about combining AI, robotics, and 3D skills. 
               With a background in game development and an undergraduate focus in electronics and computer science, 
-              I enjoy creating innovative solutions that bridge the virtual and physical worlds.</p>
+              I enjoy creating innovative solutions that bridge the virtual and physical worlds." 
+              data-fr="Je suis un passionné de technologie haut de gamme, combinant IA, robotique et compétences 3D.
+              Avec une formation en développement de jeux et un cursus en électronique et informatique,
+              j'aime créer des solutions innovantes qui relient les mondes virtuel et physique.">
+              I'm a high-end technology enthusiast passionate about combining AI, robotics, and 3D skills. 
+              With a background in game development and an undergraduate focus in electronics and computer science, 
+              I enjoy creating innovative solutions that bridge the virtual and physical worlds.
+            </p>
           </div>
         </div>
       </div>
@@ -162,19 +196,19 @@
   <!-- Section 2 sub-sections -->
       <div class="sub-section-group" data-for="section2">
         <div class="sub-section sub-active">
-          <div class="sub-section-title"> Certificates <img src="/icon/LevelUp.png" alt="icon" class="subsection-icon" /></div>
+          <div class="sub-section-title" data-en="Certificates" data-fr="Certificats"> Certificates <img src="/icon/LevelUp.png" alt="icon" class="subsection-icon" /></div>
           <div class="sub-section-text">
-            <p> - Machine Learning by Andrew Ng </p>
-            <p> - Deep Learning by Andrew Ng </p>
-            <p> - Reinforcement Learning by Alberta University </p>
-            <p> - Data Engineering by IBM </p>
-            <p> - AI infrastructure by NVIDIA </p>
+            <p data-en=" - Machine Learning by Andrew Ng" data-fr=" - Apprentissage Automatique par Andrew Ng"> - Machine Learning by Andrew Ng </p>
+            <p data-en=" - Deep Learning by Andrew Ng" data-fr=" - Apprentissage Profond par Andrew Ng"> - Deep Learning by Andrew Ng </p>
+            <p data-en=" - Reinforcement Learning by Alberta University" data-fr=" - Apprentissage par Renforcement par l'Université d'Alberta"> - Reinforcement Learning by Alberta University </p>
+            <p data-en=" - Data Engineering by IBM" data-fr=" - Ingénierie des Données par IBM"> - Data Engineering by IBM </p>
+            <p data-en=" - AI infrastructure by NVIDIA" data-fr=" - Infrastructure IA par NVIDIA"> - AI infrastructure by NVIDIA </p>
           </div>
         </div>
         <div class="sub-section">
-          <div class="sub-section-title"> Degrees <img src="/icon/LevelUp.png" alt="icon" class="subsection-icon" /></div>
+          <div class="sub-section-title" data-en="Degrees" data-fr="Diplômes"> Degrees <img src="/icon/LevelUp.png" alt="icon" class="subsection-icon" /></div>
           <div class="sub-section-text">
-            <p> - Electronic and Computer Science Engineering </p>
+            <p data-en=" - Electronic and Computer Science Engineering" data-fr=" - Ingénierie en Électronique et Informatique"> - Electronic and Computer Science Engineering </p>
           </div>
         </div>
       </div>
@@ -183,38 +217,71 @@
   <!-- Section 3 sub-sections -->
       <div class="sub-section-group" data-for="section3">
         <div class="sub-section sub-active">
-          <div class="sub-section-title"> AI Assistant Car Developer <img src="/icon/HeavensEye.png" alt="icon" class="subsection-icon" /></div>
+          <div class="sub-section-title" data-en="AI Assistant Car Developer" data-fr="Développeur de Voiture Assistante IA"> AI Assistant Car Developer <img src="/icon/HeavensEye.png" alt="icon" class="subsection-icon" /></div>
           <div class="sub-section-text">
-            <p>Designed and developed a fully autonomous driving car using NVIDIA Jetson Nano, integrating Hardware and Software. Built in
-              desktop App Control Panel for mode selection, real-time camera monitoring, system status, and manual PS4 control via Wi-Fi.</p>
-            <p>Implemented advanced AI modules: Lane Detection, Obstacle Avoidance, Face/Traffic sign Recognition (Dlib/YOLO + TensorRT),
+            <p data-en="Designed and developed a fully autonomous driving car using NVIDIA Jetson Nano, integrating Hardware and Software. Built in
+              desktop App Control Panel for mode selection, real-time camera monitoring, system status, and manual PS4 control via Wi-Fi." 
+              data-fr="Conçu et développé une voiture de conduite autonome complète utilisant NVIDIA Jetson Nano, intégrant matériel et logiciel. Créé un
+              panneau de contrôle d'application de bureau pour la sélection de mode, la surveillance en temps réel de la caméra, l'état du système et le contrôle manuel PS4 via Wi-Fi.">
+              Designed and developed a fully autonomous driving car using NVIDIA Jetson Nano, integrating Hardware and Software. Built in
+              desktop App Control Panel for mode selection, real-time camera monitoring, system status, and manual PS4 control via Wi-Fi.
+            </p>
+            <p data-en="Implemented advanced AI modules: Lane Detection, Obstacle Avoidance, Face/Traffic sign Recognition (Dlib/YOLO + TensorRT),
               camera-based SLAM for precise mapping, and Speech Interaction via STT Vosk , LLM with custom TTS voice cloning, Optimized
-              real-time processing with CUDA with +10FPS and nearly 0 Latency and multiple successful terrain Demos</p>
+              real-time processing with CUDA with +10FPS and nearly 0 Latency and multiple successful terrain Demos" 
+              data-fr="Implémenté des modules IA avancés : Détection de voie, Évitement d'obstacles, Reconnaissance faciale/panneaux de signalisation (Dlib/YOLO + TensorRT),
+              SLAM basé caméra pour une cartographie précise, et Interaction vocale via STT Vosk, LLM avec clonage vocal TTS personnalisé, Optimisé
+              le traitement en temps réel avec CUDA avec +10FPS et presque 0 latence et plusieurs démonstrations terrain réussies">
+              Implemented advanced AI modules: Lane Detection, Obstacle Avoidance, Face/Traffic sign Recognition (Dlib/YOLO + TensorRT),
+              camera-based SLAM for precise mapping, and Speech Interaction via STT Vosk , LLM with custom TTS voice cloning, Optimized
+              real-time processing with CUDA with +10FPS and nearly 0 Latency and multiple successful terrain Demos
+            </p>
           </div>
         </div>
 
 
         <div class="sub-section">
-          <div class="sub-section-title"> AI Desktop App Developer <img src="/icon/HeavensEye.png" alt="icon" class="subsection-icon" /></div>
+          <div class="sub-section-title" data-en="AI Desktop App Developer" data-fr="Développeur d'Application de Bureau IA"> AI Desktop App Developer <img src="/icon/HeavensEye.png" alt="icon" class="subsection-icon" /></div>
           <div class="sub-section-text">
-            <p>Engineered a PyQt-based Windows app with a drag-and-drop interface for black box graph data images inference. </p>
+            <p data-en="Engineered a PyQt-based Windows app with a drag-and-drop interface for black box graph data images inference." 
+              data-fr="Conçu une application Windows basée sur PyQt avec une interface glisser-déposer pour l'inférence d'images de données graphiques en boîte noire.">
+              Engineered a PyQt-based Windows app with a drag-and-drop interface for black box graph data images inference. 
+            </p>
             <p></p>
-            <p>Designed a modern UI with custom icons blending AI analysis with simple use case, making it intuitive for non-technical users. </p>
+            <p data-en="Designed a modern UI with custom icons blending AI analysis with simple use case, making it intuitive for non-technical users." 
+              data-fr="Conçu une interface moderne avec des icônes personnalisées mélangeant l'analyse IA avec des cas d'utilisation simples, la rendant intuitive pour les utilisateurs non techniques.">
+              Designed a modern UI with custom icons blending AI analysis with simple use case, making it intuitive for non-technical users. 
+            </p>
             <p></p>
-            <p>Integrated an LLM API to extract key metrics and detect anomalies automatically. Automated Excel report generation with
-              tables and graphs for fast, clear team communication significantly improving graphic band analyses on the company</p>
+            <p data-en="Integrated an LLM API to extract key metrics and detect anomalies automatically. Automated Excel report generation with
+              tables and graphs for fast, clear team communication significantly improving graphic band analyses on the company" 
+              data-fr="Intégré une API LLM pour extraire les métriques clés et détecter automatiquement les anomalies. Automatisé la génération de rapports Excel avec
+              tableaux et graphiques pour une communication d'équipe rapide et claire, améliorant significativement les analyses de bandes graphiques dans l'entreprise">
+              Integrated an LLM API to extract key metrics and detect anomalies automatically. Automated Excel report generation with
+              tables and graphs for fast, clear team communication significantly improving graphic band analyses on the company
+            </p>
           </div>
         </div>
 
 
         <div class="sub-section">
-          <div class="sub-section-title"> IIOT Team Leader <img src="/icon/HeavensEye.png" alt="icon" class="subsection-icon" /></div>
+          <div class="sub-section-title" data-en="IIOT Team Leader" data-fr="Chef d'Équipe IIOT"> IIOT Team Leader <img src="/icon/HeavensEye.png" alt="icon" class="subsection-icon" /></div>
           <div class="sub-section-text">
-            <p> I Programed a CFC program and (PCS7/WinCC) simulations to optimize cement production experience applicable to industrial
+            <p data-en=" I Programed a CFC program and (PCS7/WinCC) simulations to optimize cement production experience applicable to industrial
+                AI for automation." 
+                data-fr="J'ai programmé un programme CFC et des simulations (PCS7/WinCC) pour optimiser l'expérience de production de ciment applicable à l'IA
+                industrielle pour l'automatisation.">
+                I Programed a CFC program and (PCS7/WinCC) simulations to optimize cement production experience applicable to industrial
                 AI for automation.
+            </p>
             <p></p>
-            <p>In deep of it I designed motor sequencing algorithms and control architectures with real time sensor
-                monitoring, enabling anomaly detection</p>
+            <p data-en="In deep of it I designed motor sequencing algorithms and control architectures with real time sensor
+                monitoring, enabling anomaly detection" 
+                data-fr="En profondeur, j'ai conçu des algorithmes de séquençage de moteurs et des architectures de contrôle avec surveillance en temps réel des
+                capteurs, permettant la détection d'anomalies">
+                In deep of it I designed motor sequencing algorithms and control architectures with real time sensor
+                monitoring, enabling anomaly detection
+            </p>
           </div>
         </div>
       </div>
@@ -238,14 +305,14 @@
     <div class="skills model"> 
       <div class="container">
         <div class="skills-block">
-          <div class="skills-title"> ~ Skills ~ </div>
+          <div class="skills-title" data-en="~ Skills ~" data-fr="~ Compétences ~"> ~ Skills ~ </div>
           <div class="skills-content">
 
 
             <!-- ========== PROGRAMMING ========== -->
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
-                <span>Software Programming</span>
+                <span data-en="Software Programming" data-fr="Programmation Logicielle">Software Programming</span>
                 <span class="toggle-icon">-</span>
               </div>
               <div class="category-content active">
@@ -265,7 +332,7 @@
             <!-- ========== AI / Machine Learning ========== -->
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
-                <span>AI/ML & Data</span>
+                <span data-en="AI/ML & Data" data-fr="IA/ML & Données">AI/ML & Data</span>
                 <span class="toggle-icon">-</span>
               </div>
               <div class="category-content">
@@ -289,7 +356,7 @@
             <!-- ========== Web ========== -->
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
-                <span>Web Development</span>
+                <span data-en="Web Development" data-fr="Développement Web">Web Development</span>
                 <span class="toggle-icon">-</span>
               </div>
               <div class="category-content">
@@ -310,7 +377,7 @@
             <!-- ========== Hardware ========== -->
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
-                <span>Hardware / IOT</span>
+                <span data-en="Hardware / IOT" data-fr="Matériel / IOT">Hardware / IOT</span>
                 <span class="toggle-icon">-</span>
               </div>
               <div class="category-content">
@@ -329,7 +396,7 @@
             <!-- ========== Others ========== -->
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
-                <span>Others</span>
+                <span data-en="Others" data-fr="Autres">Others</span>
                 <span class="toggle-icon">-</span>
               </div>
               <div class="category-content">
@@ -382,16 +449,34 @@
             <div class="project" data-position="0">
               <div class="project-image"><img src="/images/Jarvis.png" alt="AI Assistant" /></div>
               <div class="project-content">
-                <h2 class="project-title">Jarvis The Car Assistant</h2>
-                <p class="project-description"> Jarvis an Autonomous and Voice-Interactive Smart Car built from scratch on Jetson Nano. With Optimized CUDA/TensorRT pipelines.</p>
-                <p class="project-description"> Custom Hardware with Sensors and motor encoders. Implementation of Advanced AI and  </p>
-                <p class="project-description"> Complete control with a Control Panel for Real-Time Monitoring, and Mode Switching through a Web Interface in a control unit enabling Manual Control (Arrows/Dual Shock Controller) through LAN/HTTP communication.</p>
-                <p class="project-description"> It can Talk & Listen, Recognize Faces, Follow Lanes, Read Traffic signs, Track Colors, Follow You when asked, and even Greet you using a chosen Cloned Voice and Personality selectable by the user. </p>
-                <p class="project-description"> Everything runs locally with low latency, real-time responses, and a minimum of 10+ FPS performance under heavy load.</p>
+                <h2 class="project-title" data-en="Jarvis The Car Assistant" data-fr="Jarvis L'Assistant Voiture">Jarvis The Car Assistant</h2>
+                <p class="project-description" data-en="Jarvis an Autonomous and Voice-Interactive Smart Car built from scratch on Jetson Nano. With Optimized CUDA/TensorRT pipelines." 
+                   data-fr="Jarvis une Voiture Intelligente Autonome et Interactive Vocale construite à partir de zéro sur Jetson Nano. Avec des pipelines CUDA/TensorRT optimisés.">
+                   Jarvis an Autonomous and Voice-Interactive Smart Car built from scratch on Jetson Nano. With Optimized CUDA/TensorRT pipelines.
+                </p>
+                <p class="project-description" data-en="Custom Hardware with Sensors and motor encoders. Implementation of Advanced AI and" 
+                   data-fr="Matériel personnalisé avec capteurs et codeurs de moteur. Implémentation d'IA avancée et">
+                   Custom Hardware with Sensors and motor encoders. Implementation of Advanced AI and
+                </p>
+                <p class="project-description" data-en="Complete control with a Control Panel for Real-Time Monitoring, and Mode Switching through a Web Interface in a control unit enabling Manual Control (Arrows/Dual Shock Controller) through LAN/HTTP communication." 
+                   data-fr="Contrôle complet avec un Panneau de Contrôle pour la Surveillance en Temps Réel, et le Changement de Mode via une Interface Web dans une unité de contrôle permettant le Contrôle Manuel (Flèches/Manette Dual Shock) via communication LAN/HTTP.">
+                   Complete control with a Control Panel for Real-Time Monitoring, and Mode Switching through a Web Interface in a control unit enabling Manual Control (Arrows/Dual Shock Controller) through LAN/HTTP communication.
+                </p>
+                <p class="project-description" data-en="It can Talk & Listen, Recognize Faces, Follow Lanes, Read Traffic signs, Track Colors, Follow You when asked, and even Greet you using a chosen Cloned Voice and Personality selectable by the user." 
+                   data-fr="Il peut Parler & Écouter, Reconnaître les Visages, Suivre les Voies, Lire les Panneaux de Signalisation, Suivre les Couleurs, Vous Suivre quand demandé, et même Vous Saluer en utilisant une Voix Clonée choisie et une Personnalité sélectionnable par l'utilisateur.">
+                   It can Talk & Listen, Recognize Faces, Follow Lanes, Read Traffic signs, Track Colors, Follow You when asked, and even Greet you using a chosen Cloned Voice and Personality selectable by the user.
+                </p>
+                <p class="project-description" data-en="Everything runs locally with low latency, real-time responses, and a minimum of 10+ FPS performance under heavy load." 
+                   data-fr="Tout fonctionne localement avec une faible latence, des réponses en temps réel, et une performance minimale de 10+ FPS sous charge lourde.">
+                   Everything runs locally with low latency, real-time responses, and a minimum of 10+ FPS performance under heavy load.
+                </p>
                 
                 <hr>
 
-                <p class="project-skills">Skills: Jetson, CUDA, LLM, Speech-To-Text, TTS, YOLO, Deep Learning, Face Recognition, Lane Detection, TensorRT Optimization, HTTP/LAN Control, Flask API</p>
+                <p class="project-skills" data-en="Skills: Jetson, CUDA, LLM, Speech-To-Text, TTS, YOLO, Deep Learning, Face Recognition, Lane Detection, TensorRT Optimization, HTTP/LAN Control, Flask API" 
+                   data-fr="Compétences : Jetson, CUDA, LLM, Reconnaissance Vocale, Synthèse Vocale, YOLO, Apprentissage Profond, Reconnaissance Faciale, Détection de Voie, Optimisation TensorRT, Contrôle HTTP/LAN, API Flask">
+                   Skills: Jetson, CUDA, LLM, Speech-To-Text, TTS, YOLO, Deep Learning, Face Recognition, Lane Detection, TensorRT Optimization, HTTP/LAN Control, Flask API
+                </p>
 
               </div>
             </div>
@@ -403,17 +488,32 @@
             <div class="project" data-position="1">
               <div class="project-image"><img src="/images/Flappy.png" alt="AI Assistant" /></div>
               <div class="project-content">
-                <h2 class="project-title">Flappy Bird AI Agent</h2>
-                <p class="project-description"> A complete Flappy Bird game fully implemented in C++, followed by the development of two advanced RL agents capable of playing the game autonomously. </p>
-                <p class="project-description"> The goal was to create an unbeatable AI agent by comparing Genetic Algorithms versus Proximal Policy Optimization (PPO).</p>
+                <h2 class="project-title" data-en="Flappy Bird AI Agent" data-fr="Agent IA Flappy Bird">Flappy Bird AI Agent</h2>
+                <p class="project-description" data-en="A complete Flappy Bird game fully implemented in C++, followed by the development of two advanced RL agents capable of playing the game autonomously." 
+                   data-fr="Un jeu Flappy Bird complet entièrement implémenté en C++, suivi du développement de deux agents d'apprentissage par renforcement avancés capables de jouer au jeu de manière autonome.">
+                   A complete Flappy Bird game fully implemented in C++, followed by the development of two advanced RL agents capable of playing the game autonomously.
+                </p>
+                <p class="project-description" data-en="The goal was to create an unbeatable AI agent by comparing Genetic Algorithms versus Proximal Policy Optimization (PPO)." 
+                   data-fr="L'objectif était de créer un agent IA imbattable en comparant les Algorithmes Génétiques à l'Optimisation de Politique Proximale (PPO).">
+                   The goal was to create an unbeatable AI agent by comparing Genetic Algorithms versus Proximal Policy Optimization (PPO).
+                </p>
                 <p class="project-description"></p>
-                <p class="project-description"> Results : </p>
-                <p class="project-description"> - Genetic Algorithms: Achieved perfect performance on static levels (fixed patterns). Lightweight, extremely fast training.</p>
-                <p class="project-description"> - PPO Agent (Neural Network): Achieved 100% success rate in randomized scenarios, effectively making the bird unkillable.</p>
+                <p class="project-description" data-en="Results :" data-fr="Résultats :">Results :</p>
+                <p class="project-description" data-en="- Genetic Algorithms: Achieved perfect performance on static levels (fixed patterns). Lightweight, extremely fast training." 
+                   data-fr="- Algorithmes Génétiques : Performance parfaite sur les niveaux statiques (motifs fixes). Léger, entraînement extrêmement rapide.">
+                   - Genetic Algorithms: Achieved perfect performance on static levels (fixed patterns). Lightweight, extremely fast training.
+                </p>
+                <p class="project-description" data-en="- PPO Agent (Neural Network): Achieved 100% success rate in randomized scenarios, effectively making the bird unkillable." 
+                   data-fr="- Agent PPO (Réseau de Neurones) : Taux de réussite de 100% dans des scénarios randomisés, rendant effectivement l'oiseau invincible.">
+                   - PPO Agent (Neural Network): Achieved 100% success rate in randomized scenarios, effectively making the bird unkillable.
+                </p>
 
                 <hr>
 
-                <p class="project-skills">Skills: C++, Reinforcement Learning, PPO, Genetic Algorithm, Neural Networks, Game Development </p>
+                <p class="project-skills" data-en="Skills: C++, Reinforcement Learning, PPO, Genetic Algorithm, Neural Networks, Game Development" 
+                   data-fr="Compétences : C++, Apprentissage par Renforcement, PPO, Algorithme Génétique, Réseaux de Neurones, Développement de Jeux">
+                   Skills: C++, Reinforcement Learning, PPO, Genetic Algorithm, Neural Networks, Game Development
+                </p>
 
               </div>
             </div>
@@ -426,14 +526,26 @@
             <div class="project" data-position="2">
               <div class="project-image"><img src="/images/Maze.png" alt="AI Assistant" /></div>
               <div class="project-content">
-                <h2 class="project-title">Generative Maze Solver</h2>
-                <p class="project-description"> Generative Maze Solver is a Python Procedural Generative Mazes of customizable size using the Prim's Algorithm. Implemented with a GUI interface and a QT conversion for Desktop app usage. </p>
-                <p class="project-description"> Users can Randomize the Start and Goal positions inside the maze with an implemented GUI interface. </p>
-                <p class="project-description"> Enter triggers an A* path finding algorithm to compute the shortest path to the goal. Fast interactive Python application. </p>
+                <h2 class="project-title" data-en="Generative Maze Solver" data-fr="Générateur et Solveur de Labyrinthe">Generative Maze Solver</h2>
+                <p class="project-description" data-en="Generative Maze Solver is a Python Procedural Generative Mazes of customizable size using the Prim's Algorithm. Implemented with a GUI interface and a QT conversion for Desktop app usage." 
+                   data-fr="Générateur et Solveur de Labyrinthe est un générateur procédural de labyrinthes en Python de taille personnalisable utilisant l'algorithme de Prim. Implémenté avec une interface graphique et une conversion QT pour une utilisation en application de bureau.">
+                   Generative Maze Solver is a Python Procedural Generative Mazes of customizable size using the Prim's Algorithm. Implemented with a GUI interface and a QT conversion for Desktop app usage.
+                </p>
+                <p class="project-description" data-en="Users can Randomize the Start and Goal positions inside the maze with an implemented GUI interface." 
+                   data-fr="Les utilisateurs peuvent randomiser les positions de Départ et d'Arrivée dans le labyrinthe avec une interface graphique implémentée.">
+                   Users can Randomize the Start and Goal positions inside the maze with an implemented GUI interface.
+                </p>
+                <p class="project-description" data-en="Enter triggers an A* path finding algorithm to compute the shortest path to the goal. Fast interactive Python application." 
+                   data-fr="Entrée déclenche un algorithme de recherche de chemin A* pour calculer le chemin le plus court vers l'objectif. Application Python interactive rapide.">
+                   Enter triggers an A* path finding algorithm to compute the shortest path to the goal. Fast interactive Python application.
+                </p>
 
                 <hr>
 
-                <p class="project-skills">Skills: Generative AI(Level Generation), A* Algorithm, Algorithm Optimization, Path Finding, PyQT, GUI</p>
+                <p class="project-skills" data-en="Skills: Generative AI(Level Generation), A* Algorithm, Algorithm Optimization, Path Finding, PyQT, GUI" 
+                   data-fr="Compétences : IA Générative (Génération de Niveaux), Algorithme A*, Optimisation d'Algorithme, Recherche de Chemin, PyQT, Interface Graphique">
+                   Skills: Generative AI(Level Generation), A* Algorithm, Algorithm Optimization, Path Finding, PyQT, GUI
+                </p>
 
               </div>
             </div>
@@ -448,15 +560,30 @@
             <div class="project" data-position="-2">
               <div class="project-image"><img src="/images/WUWA.png" alt="AI Assistant" /></div>
               <div class="project-content">
-                <h2 class="project-title"> WUWA The Smart Door App </h2>
-                <p class="project-description"> WUWA is a voice-activated smart door system, that uses Voice Recognition to authenticate users before executing commands (open, close, lock) with Speech-To-Text. </p>
-                <p class="project-description"> The system leverages a Raspberry Pi for real-time edge processing and motor control, converting authenticated voice commands (via STT) directly into mechanical outputs to physically manipulate the mechanism. </p>
-                <p class="project-description"> The end Goal is to achieve a Keyless automated real sized door, with cool and stylized way to control the secured entrance. </p>
-                <p class="project-description"> A dedicated mobile application is In Development to manage user credentials add or remove users using a secure QR code, to dynamically train and add their voice models to the Raspberry Pi unit via the Flask Backend. </p>
+                <h2 class="project-title" data-en="WUWA The Smart Door App" data-fr="WUWA L'Application de Porte Intelligente"> WUWA The Smart Door App </h2>
+                <p class="project-description" data-en="WUWA is a voice-activated smart door system, that uses Voice Recognition to authenticate users before executing commands (open, close, lock) with Speech-To-Text." 
+                   data-fr="WUWA est un système de porte intelligente activé par la voix, qui utilise la Reconnaissance Vocale pour authentifier les utilisateurs avant d'exécuter les commandes (ouvrir, fermer, verrouiller) avec la Reconnaissance Vocale.">
+                   WUWA is a voice-activated smart door system, that uses Voice Recognition to authenticate users before executing commands (open, close, lock) with Speech-To-Text.
+                </p>
+                <p class="project-description" data-en="The system leverages a Raspberry Pi for real-time edge processing and motor control, converting authenticated voice commands (via STT) directly into mechanical outputs to physically manipulate the mechanism." 
+                   data-fr="Le système utilise un Raspberry Pi pour le traitement en temps réel en périphérie et le contrôle des moteurs, convertissant les commandes vocales authentifiées (via STT) directement en sorties mécaniques pour manipuler physiquement le mécanisme.">
+                   The system leverages a Raspberry Pi for real-time edge processing and motor control, converting authenticated voice commands (via STT) directly into mechanical outputs to physically manipulate the mechanism.
+                </p>
+                <p class="project-description" data-en="The end Goal is to achieve a Keyless automated real sized door, with cool and stylized way to control the secured entrance." 
+                   data-fr="L'objectif final est d'atteindre une porte de taille réelle automatisée sans clé, avec une manière cool et stylisée de contrôler l'entrée sécurisée.">
+                   The end Goal is to achieve a Keyless automated real sized door, with cool and stylized way to control the secured entrance.
+                </p>
+                <p class="project-description" data-en="A dedicated mobile application is In Development to manage user credentials add or remove users using a secure QR code, to dynamically train and add their voice models to the Raspberry Pi unit via the Flask Backend." 
+                   data-fr="Une application mobile dédiée est en développement pour gérer les identifiants des utilisateurs, ajouter ou supprimer des utilisateurs en utilisant un code QR sécurisé, pour former dynamiquement et ajouter leurs modèles vocaux à l'unité Raspberry Pi via le Backend Flask.">
+                   A dedicated mobile application is In Development to manage user credentials add or remove users using a secure QR code, to dynamically train and add their voice models to the Raspberry Pi unit via the Flask Backend.
+                </p>
                 
                 <hr>
 
-                <p class="project-skills">Skills: Voice Recognition, Speech-To-Text, PyQT, Raspberry, Embedded System, Edge Device, Mobile App, Flask, GUI </p>
+                <p class="project-skills" data-en="Skills: Voice Recognition, Speech-To-Text, PyQT, Raspberry, Embedded System, Edge Device, Mobile App, Flask, GUI" 
+                   data-fr="Compétences : Reconnaissance Vocale, Reconnaissance Vocale, PyQT, Raspberry, Système Embarqué, Appareil en Périphérie, Application Mobile, Flask, Interface Graphique">
+                   Skills: Voice Recognition, Speech-To-Text, PyQT, Raspberry, Embedded System, Edge Device, Mobile App, Flask, GUI
+                </p>
 
               </div>
             </div>
@@ -471,17 +598,35 @@
             <div class="project" data-position="-1">
               <div class="project-image"><img src="/images/UE5.png" alt="AI Assistant" /></div>
               <div class="project-content">
-                <h2 class="project-title"> Boss Fight AI Agent </h2>
-                <p class="project-description"> In Unreal Engine 5 I Developed an immersive, Elden Ring-inspired Boss Fight featuring a sophisticated boss AI with DLSS optimization. </p>
-                <p class="project-description"> The project culminates in the creation of a Reinforcement Learning (PPO) Agent trained to adapt to the boss’s attack patterns. </p>
+                <h2 class="project-title" data-en="Boss Fight AI Agent" data-fr="Agent IA de Combat de Boss"> Boss Fight AI Agent </h2>
+                <p class="project-description" data-en="In Unreal Engine 5 I Developed an immersive, Elden Ring-inspired Boss Fight featuring a sophisticated boss AI with DLSS optimization." 
+                   data-fr="Dans Unreal Engine 5, j'ai développé un Combat de Boss immersif inspiré d'Elden Ring mettant en vedette une IA de boss sophistiquée avec optimisation DLSS.">
+                   In Unreal Engine 5 I Developed an immersive, Elden Ring-inspired Boss Fight featuring a sophisticated boss AI with DLSS optimization.
+                </p>
+                <p class="project-description" data-en="The project culminates in the creation of a Reinforcement Learning (PPO) Agent trained to adapt to the boss's attack patterns." 
+                   data-fr="Le projet culmine avec la création d'un Agent d'Apprentissage par Renforcement (PPO) entraîné à s'adapter aux modèles d'attaque du boss.">
+                   The project culminates in the creation of a Reinforcement Learning (PPO) Agent trained to adapt to the boss's attack patterns.
+                </p>
                 <p class="project-description"></p>
-                <p class="project-description"> AI Behavior Trees for Decision making, Pathfinding, and fine tuned hit reactions and sound responses with custom poise system and health management for realistic combat. </p>
-                <p class="project-description"> PPO Agent Successfully deployed and trained with a rewards and punishments, Through iterative Neural Network Adjustments. </p>
-                <p class="project-description"> The agent's Neural Network evolved to navigate the arena, collect weapon, use item, and avoid attacks autonomously, effectively learning and mastering the boss fight. </p>
+                <p class="project-description" data-en="AI Behavior Trees for Decision making, Pathfinding, and fine tuned hit reactions and sound responses with custom poise system and health management for realistic combat." 
+                   data-fr="Arbres de Comportement IA pour la Prise de Décision, la Recherche de Chemin, et des réactions aux coups et réponses sonores finement réglées avec un système de posture personnalisé et une gestion de la santé pour un combat réaliste.">
+                   AI Behavior Trees for Decision making, Pathfinding, and fine tuned hit reactions and sound responses with custom poise system and health management for realistic combat.
+                </p>
+                <p class="project-description" data-en="PPO Agent Successfully deployed and trained with a rewards and punishments, Through iterative Neural Network Adjustments." 
+                   data-fr="Agent PPO déployé et entraîné avec succès avec des récompenses et des punitions, via des ajustements itératifs du Réseau de Neurones.">
+                   PPO Agent Successfully deployed and trained with a rewards and punishments, Through iterative Neural Network Adjustments.
+                </p>
+                <p class="project-description" data-en="The agent's Neural Network evolved to navigate the arena, collect weapon, use item, and avoid attacks autonomously, effectively learning and mastering the boss fight." 
+                   data-fr="Le Réseau de Neurones de l'agent a évolué pour naviguer dans l'arène, collecter des armes, utiliser des objets et éviter les attaques de manière autonome, apprenant et maîtrisant efficacement le combat de boss.">
+                   The agent's Neural Network evolved to navigate the arena, collect weapon, use item, and avoid attacks autonomously, effectively learning and mastering the boss fight.
+                </p>
 
                 <hr>
 
-                <p class="project-skills">Skills: UE5, AI, Machine Learning, Reinforcement Learning, PPO, C++, Game Development</p>
+                <p class="project-skills" data-en="Skills: UE5, AI, Machine Learning, Reinforcement Learning, PPO, C++, Game Development" 
+                   data-fr="Compétences : UE5, IA, Apprentissage Automatique, Apprentissage par Renforcement, PPO, C++, Développement de Jeux">
+                   Skills: UE5, AI, Machine Learning, Reinforcement Learning, PPO, C++, Game Development
+                </p>
 
               </div>
             </div>
@@ -532,14 +677,14 @@
 
 
           <form id="form" class="contact-right" method="POST" action="https://api.web3forms.com/submit">
-            <div class="contact-title"> ~ Get in touch ~ </div>
+            <div class="contact-title" data-en="~ Get in touch ~" data-fr="~ Contactez-moi ~"> ~ Get in touch ~ </div>
 
 
             <!-- ========== Inputs ========== -->
             <input type="hidden" name="access_key" value="1669eb61-39b4-4ecb-a7e3-e584611ba2d4">
-            <input type="text" name="name" placeholder="Your Name" class="contact-input" required>
-            <input type="email" name="email" placeholder="Your Email" class="contact-input" required>
-            <textarea name="message" placeholder="Your Message" class="contact-input" required></textarea>
+            <input type="text" name="name" placeholder="Your Name" class="contact-input" required data-en-placeholder="Your Name" data-fr-placeholder="Votre Nom">
+            <input type="email" name="email" placeholder="Your Email" class="contact-input" required data-en-placeholder="Your Email" data-fr-placeholder="Votre Email">
+            <textarea name="message" placeholder="Your Message" class="contact-input" required data-en-placeholder="Your Message" data-fr-placeholder="Votre Message"></textarea>
 
 
 
@@ -554,7 +699,7 @@
               </a>
 
               
-              <button type="submit" id="submit-button">Submit</button>
+              <button type="submit" id="submit-button" data-en="Submit" data-fr="Envoyer">Submit</button>
 
               
               <a href="https://www.linkedin.com/in/fianso-nairs-700178301/" target="_blank" rel="noopener noreferrer">
@@ -656,6 +801,11 @@
       </svg>
     </button>
 
+    <!-- Language Toggle Button -->
+    <button class="language-toggle-button toggle-buttons" id="language-toggle">
+      EN
+    </button>
+
 
 
 
@@ -694,6 +844,35 @@
       window.addEventListener('load', () => {
         createStars();
       });
+    </script>
+
+    <!------ Language Toggle -------->
+    <script>
+      let currentLanguage = 'en';
+      const languageToggle = document.getElementById('language-toggle');
+
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+        updateLanguage();
+        languageToggle.textContent = currentLanguage.toUpperCase();
+      }
+
+      function updateLanguage() {
+        // Update all elements with data attributes
+        document.querySelectorAll('[data-en]').forEach(element => {
+          if (element.hasAttribute('data-en-placeholder')) {
+            element.placeholder = currentLanguage === 'en' 
+              ? element.getAttribute('data-en-placeholder') 
+              : element.getAttribute('data-fr-placeholder');
+          } else {
+            element.textContent = currentLanguage === 'en' 
+              ? element.getAttribute('data-en') 
+              : element.getAttribute('data-fr');
+          }
+        });
+      }
+
+      languageToggle.addEventListener('click', toggleLanguage);
     </script>
 
     <!------ About Module -------->
