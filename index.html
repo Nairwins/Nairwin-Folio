@@ -1014,5 +1014,133 @@
     </script>
 
 
+
+    <!------ Touch Screen Fixes -------->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Fix for section clicks on touch devices
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+          section.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.click();
+          }, { passive: false });
+        });
+
+        // Fix for sub-section title clicks on touch devices
+        const subSectionTitles = document.querySelectorAll('.sub-section-title');
+        subSectionTitles.forEach(title => {
+          title.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.click();
+          }, { passive: false });
+        });
+
+        // Fix for skill category headers on touch devices
+        const categoryHeaders = document.querySelectorAll('.category-header');
+        categoryHeaders.forEach(header => {
+          header.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.click();
+          }, { passive: false });
+        });
+
+        // Fix for carousel arrows on touch devices
+        const carouselArrows = document.querySelectorAll('.nav-arrow');
+        carouselArrows.forEach(arrow => {
+          arrow.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.click();
+          }, { passive: false });
+        });
+
+        // Fix for model exit buttons on touch devices
+        const exitButtons = document.querySelectorAll('.model-exit');
+        exitButtons.forEach(button => {
+          button.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.click();
+          }, { passive: false });
+        });
+
+        // Fix for language toggle button on touch devices
+        const languageToggle = document.getElementById('language-toggle');
+        if (languageToggle) {
+          languageToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.click();
+          }, { passive: false });
+        }
+
+        // Fix for mute toggle button on touch devices
+        const muteToggle = document.querySelector('.mute-toggle-button');
+        if (muteToggle) {
+          muteToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.click();
+          }, { passive: false });
+        }
+
+        // Fix for enter button on touch devices
+        const enterBtn = document.getElementById('enter-btn');
+        if (enterBtn) {
+          enterBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.click();
+          }, { passive: false });
+        }
+
+        // Fix for contact form submit button on touch devices
+        const submitBtn = document.getElementById('submit-button');
+        if (submitBtn) {
+          submitBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            // Don't trigger click immediately for submit button to allow for form validation
+          }, { passive: false });
+        }
+
+        // Improved carousel swipe handling
+        const carousel = document.getElementById('carousel');
+        if (carousel) {
+          let touchStartX = 0;
+          let touchStartY = 0;
+          
+          carousel.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+          }, { passive: true });
+
+          carousel.addEventListener('touchend', function(e) {
+            const touchEndX = e.changedTouches[0].screenX;
+            const touchEndY = e.changedTouches[0].screenY;
+            
+            const diffX = touchStartX - touchEndX;
+            const diffY = touchStartY - touchEndY;
+            
+            // Only handle horizontal swipes (ignore vertical scrolls)
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+              e.preventDefault();
+              if (diffX > 0) {
+                moveCarousel(1); // Swipe left - next
+              } else {
+                moveCarousel(-1); // Swipe right - previous
+              }
+            }
+          }, { passive: false });
+        }
+
+        // Prevent zoom on double tap for interactive elements
+        const interactiveElements = document.querySelectorAll('button, .section, .category-header, .sub-section-title');
+        interactiveElements.forEach(element => {
+          element.addEventListener('touchend', function(e) {
+            if (e.target === this) {
+              e.preventDefault();
+            }
+          }, { passive: false });
+        });
+      });
+    </script>
+
+
   </body>
 </html>

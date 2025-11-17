@@ -1097,7 +1097,7 @@
   
   /* Mute Button */
   .mute-toggle-button {
-    left: 10px;
+    left: 100px;
     top: 10px;
   }
 
@@ -1105,6 +1105,14 @@
   .sound-off-svg {
     width: 30px;
     height: 30px;
+  }
+
+  .language-toggle-button {
+    height: 65px;
+    width: 65px;
+    right: 30px;
+    left: 10px;
+    top: 10px;
   }
 
   /* Exit Button */
