@@ -26,8 +26,13 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-
-camera.position.set(-13 , 7.2 , -2);
+//Camera Position Start
+if (window.innerWidth > 1000) {
+  camera.position.set(-13 , 7.2 , -2);
+}
+else {
+  camera.position.set(-30, 10 , -2);
+}
 
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
 renderer.setSize(sizes.width, sizes.height);
@@ -72,9 +77,11 @@ function isModelOpen(model) {
 function showExclusiveModel(model) {
   const all = [models.about, models.skills, models.work, models.contact];
   all.forEach(m => {
-    if (m && m !== model && isModelOpen(m)) hideModel(m);
+    if (m && m !== model && isModelOpen(m))
+      if (clickabou) hideModel(m);
   });
-  if (model && !isModelOpen(model)) showModel(model);
+  if (model && !isModelOpen(model)) 
+    if (clickabou) showModel(model);
 }
 
 
@@ -141,30 +148,26 @@ function playHoverAnimation (object, ok, scale=1.3, rotation=Math.PI / 32, posit
   }
 }
 
-
-document.querySelectorAll('.model-exit').forEach((btn) => {
-  let touched = false;
-  
-
-  btn.addEventListener('touchend', (e) => {
-    e.preventDefault();
-    const model = e.target.closest('.model');
-    hideModel(model);
-    touched = true;
-  },{ passive: false });
-
+const exits = document.querySelectorAll('.model-exit')
+exits.forEach((btn) => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    if (touched) {
-      touched = false;
-      return;
-    }
     const model = e.target.closest('.model');
     hideModel(model);
     clickabou = true;
     bloop.play();
-  },{ passive: false });
 
+    exits.classList.add("pressed");
+    setTimeout(() => {
+      exits.classList.remove("pressed");
+    }, 200);
+  });
+  
+  // Just prevent default on touch to avoid double fire
+  btn.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    clickabou = true;
+  }, { passive: false });
 });
 
 
@@ -246,14 +249,20 @@ const muteButton = document.querySelector(".mute-toggle-button");
 const soundOff = document.querySelector(".sound-off-svg");
 const soundOn = document.querySelector(".sound-on-svg");
 
+const ln = document.querySelector(".language-toggle-button");
+
 let isMuted = false;
 
 muteButton.addEventListener("click", () => {
   bloop.play();
   isMuted = !isMuted;
   
-  // Toggle Howler mute
   Music.mute(isMuted);
+
+  muteButton.classList.add("pressed");
+  setTimeout(() => {
+    muteButton.classList.remove("pressed");
+  }, 200);
 
 
   // Toggle which SVG is visible
@@ -267,6 +276,14 @@ muteButton.addEventListener("click", () => {
 });
 
 
+ln.addEventListener("click", () => {
+  bloop.play();
+
+  ln.classList.add("pressed");
+  setTimeout(() => {
+    ln.classList.remove("pressed");
+  }, 200);
+});
 
 
 //Loading Screen
@@ -448,16 +465,61 @@ const pointer = new THREE.Vector2();
 const raycasterObjects = [];
 let clickabou = true;
 
+// Mobile touch state
+let lastTouchTime = 0;
+let touchMoved = false;
+
+// Update pointer on mouse move (desktop)
 window.addEventListener("mousemove", (event) => {
   pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
   pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
 });
 
+// Better mobile touch handling
+window.addEventListener("touchstart", (event) => {
+  event.preventDefault();
+  touchMoved = false;
+  
+  pointer.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
+  pointer.y = - (event.touches[0].clientY / window.innerHeight) * 2 + 1;
+}, { passive: false });
+
+window.addEventListener("touchmove", (event) => {
+  event.preventDefault();
+  touchMoved = true; // Mark as moved to prevent click if user drags
+  
+  pointer.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
+  pointer.y = - (event.touches[0].clientY / window.innerHeight) * 2 + 1;
+}, { passive: false });
+
+window.addEventListener("touchend", (event) => {
+  event.preventDefault();
+  
+  const currentTime = new Date().getTime();
+  const tapLength = currentTime - lastTouchTime;
+  
+  // Prevent double taps and only handle if didn't move much
+  if (tapLength < 500 || touchMoved) {
+    lastTouchTime = currentTime;
+    return;
+  }
+  
+  lastTouchTime = currentTime;
+  handleRaycaster();
+}, { passive: false });
+
+// Desktop click
+window.addEventListener('click', (event) => {
+  // Only handle click if it's not from touch device
+  if ('ontouchstart' in window) return;
+  handleRaycaster();
+});
 
 function handleRaycaster() {
   if (currentIntersects.length > 0) {
     const object = currentIntersects[0].object;
 
+    // Social links (always allowed)
     if (clickabou) {
       Object.entries(social).forEach(([name, url]) => {
         if (object.name.includes(name)) {
@@ -466,52 +528,56 @@ function handleRaycaster() {
           newWindow.location = url;
           newWindow.target = "_blank";
           newWindow.rel = "noopener noreferrer";
+          return;
         }
       });
     }
 
-
-    if (object.name.includes("About")) {
+    // Model interactions
+    if (object.name.includes("About") && clickabou) {
       showExclusiveModel(models.about);
       clickabou = false;
       clouk.play();
-    } else if (object.name.includes("Skills")) {
+    } else if (object.name.includes("Skills") && clickabou) {
       showExclusiveModel(models.skills);
       clickabou = false;
       clouk.play();
-    } else if (object.name.includes("Projects")) {
-      showExclusiveModel(models.work);
+    } else if (object.name.includes("Projects") && clickabou) {
+      showExclusiveModel(models.work); // Fixed: was models.projects
       clickabou = false;
       clouk.play();
-    } else if (object.name.includes("Contact")) {
+    } else if (object.name.includes("Contact") && clickabou) {
       showExclusiveModel(models.contact);
       clickabou = false;
       clouk.play();
     } else if (object.name.includes("Home")) {
-      showExclusiveModel(models.home);
+      // Home should always work to close models
       clickabou = true;
       clouk.play();
+      // Close all models
+      Object.values(models).forEach(model => {
+        if (model && isModelOpen(model)) {
+          hideModel(model);
+        }
+      });
     }
 
-    if (object.name.includes("Boombox")) {
-      if (clickabou) {
-        nextSong();
-        electro.play();
-      }
+    // Boombox (always allowed when clickabou is true)
+    if (object.name.includes("Boombox") && clickabou) {
+      nextSong();
+      electro.play();
     }
+
+    // Clear hover
+    setTimeout(() => {
+      if (currentHovered) {
+        playHoverAnimation(currentHovered, false);
+        currentHovered = null;
+        document.body.style.cursor = 'default';
+      }
+    }, 300);
   }
 }
-
-window.addEventListener("touchstart", (event) => {
-  event.preventDefault();
-  pointer.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
-  pointer.y = - (event.touches[0].clientY / window.innerHeight) * 2 + 1;
-},{ passive: false });
-
-window.addEventListener("touchend", (event) => {
-  event.preventDefault();
-  handleRaycaster();
-},{ passive: false });
 
 
 
@@ -788,11 +854,12 @@ const render = () => {
 
         currentHovered = intersected;
       }
-      if (intersected.name.includes("Pannel"))
+      if (intersected.name.includes("Pannel") && clickabou || intersected.name.includes("Home"))
         document.body.style.cursor = 'pointer';
       else if (intersected.name.includes("Pointer") && clickabou)
         document.body.style.cursor = 'pointer';
-      else document.body.style.cursor = 'default';
+      else 
+        document.body.style.cursor = 'default';
 
     } else {
       if (currentHovered) {
