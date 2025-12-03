@@ -70,8 +70,8 @@ const electro = new Howl({ src: ["/audio/sfx/electro.mp3"] });
 
 // Store SFX with their custom volumes for muted/unmuted
 const sfxList = [
-  { sound: bloop, volumes: { muted: 0.05, unmuted: 0.7 } },
-  { sound: clouk, volumes: { muted: 0.2, unmuted: 1 } },
+  { sound: bloop, volumes: { muted: 0.02, unmuted: 0.7 } },
+  { sound: clouk, volumes: { muted: 0.1, unmuted: 1 } },
   { sound: electro, volumes: { muted: 0.01, unmuted: 0.2 } }
 ];
 
