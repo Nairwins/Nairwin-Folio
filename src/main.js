@@ -237,8 +237,12 @@ const hideModel = (model) => {
   });
 }
 
-// --- MUTE TOGGLE LOGIC ---
 
+
+
+
+
+// --- MUTE & LANGUAGE LOGIC (Unified Fix) ---
 const muteButton = document.querySelector(".mute-toggle-button");
 const soundOff = document.querySelector(".sound-off-svg");
 const soundOn = document.querySelector(".sound-on-svg");
@@ -248,52 +252,95 @@ const ln = document.querySelector(".language-toggle-button");
 soundOff.style.display = "block";
 soundOn.style.display = "none";
 
-muteButton.addEventListener("click", (e) => {
-  e.preventDefault();
+// --- HELPER: Handle Click vs Touch ---
+// This prevents the "Sticky Hover" on mobile but allows clicking on laptop
+function addSmartListener(element, callback) {
+  element.addEventListener("touchstart", (e) => {
+    if (e.cancelable) e.preventDefault(); // Stop mobile ghost clicks
+    callback(e);
+  }, { passive: false });
+
+  element.addEventListener("click", (e) => {
+    callback(e);
+  });
+}
+
+
+// --- MUTE FUNCTION ---
+const toggleMute = (e) => {
   bloop.play();
-  
-  // 1. Handle Mute State
+
+  // Logic
   isMuted = !isMuted;
-  
-  // 2. Update SFX (20% or 100%)
   updateSFXVolume();
 
-  // 3. Handle Music
   const currentMusic = musicInstances[songIndex];
-
   if (!musicHasStarted) {
-    // FIRST TIME UNMUTE (Logic: Start from beginning)
     if (!isMuted && currentMusic) {
       currentMusic.mute(false);
       currentMusic.play();
       musicHasStarted = true;
     }
   } else {
-    // SUBSEQUENT TOGGLES (Logic: Just mute/unmute, keep playing)
-    if (currentMusic) {
-      currentMusic.mute(isMuted);
-    }
+    if (currentMusic) currentMusic.mute(isMuted);
   }
 
-  // 4. UI Updates
+  // Animation
   muteButton.classList.add("pressed");
+  muteButton.blur(); // Removes focus ring
   setTimeout(() => { muteButton.classList.remove("pressed"); }, 200);
 
-  if (isMuted) {
-    soundOff.style.display = "block";
-    soundOn.style.display = "none";
-  } else {
-    soundOff.style.display = "none";
-    soundOn.style.display = "block";
-  }
-});
+  // Icon Swap
+  soundOff.style.display = isMuted ? "block" : "none";
+  soundOn.style.display = isMuted ? "none" : "block";
+};
 
-ln.addEventListener("click", () => {
+// --- LANGUAGE LOGIC (Now inside main.js!) ---
+let currentLanguage = 'en';
+
+const updateLanguageText = () => {
+  // Select all elements that need translating
+  document.querySelectorAll('[data-en]').forEach(element => {
+    if (element.hasAttribute('data-en-placeholder')) {
+      // Handle inputs/textareas
+      element.placeholder = currentLanguage === 'en' 
+        ? element.getAttribute('data-en-placeholder') 
+        : element.getAttribute('data-fr-placeholder');
+    } else {
+      // Handle normal text
+      element.textContent = currentLanguage === 'en' 
+        ? element.getAttribute('data-en') 
+        : element.getAttribute('data-fr');
+    }
+  });
+
+  // Update the button text itself
+  if(ln) ln.textContent = currentLanguage.toUpperCase();
+};
+
+const toggleLanguageAnim = (e) => {
   bloop.play();
+  
+  // Animation
   ln.classList.add("pressed");
+  ln.blur(); 
   setTimeout(() => { ln.classList.remove("pressed"); }, 200);
-  ln.blur();
-});
+
+  // Logic: Switch Language
+  currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+  updateLanguageText();
+};
+
+// Apply Listeners
+if(muteButton) addSmartListener(muteButton, toggleMute);
+if(ln) addSmartListener(ln, toggleLanguageAnim);
+
+
+
+
+
+
+
 
 
 // --- LOADING SCREEN ---
