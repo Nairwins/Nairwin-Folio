@@ -1,117 +1,113 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/favicon/Icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Firestar</title>
 
     <style>
-      /* Loading Page */
-      #loading-screen {
-        pointer-events: none;
-        position: fixed;
-        inset: 0;
-        background: linear-gradient(135deg, #0f0c29, #302b63, #030d2a);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        transition: opacity 1s ease-in, transform 0.7s ease-in;
 
-        &.hidden {
-          opacity: 0;
-          transform: scale(1.05);
-          pointer-events: none;
-        }
+    /* Loading Page */
+    #loading-screen {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #030d2a);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: opacity 1s ease-in, transform 0.7s ease-in;
+    }
+
+    #loading-screen.hidden {
+      opacity: 0;
+      transform: scale(1.05);
+      pointer-events: none;
+    }
+
+    /* Loader Content */
+    .loading-content {
+      position: fixed;
+      width: 70%;
+      height: 70%;
+      text-align: center;
+      color: white;
+      z-index: 1;
+      position: relative;
+    }
+
+    .loading-text {
+      font-size: 30px;
+      letter-spacing: 2px;
+      position: fixed;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Moon Loader */
+    .moon-loader {
+      width: 10vw;
+      height: 10vw;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f5f5dc 0%, #fffacd 100%);
+      box-shadow: 0 0 40px rgba(255, 250, 205, 0.6);
+      animation: pulse 2s ease-in-out infinite;
+      margin-bottom: 30px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { 
+        transform: scale(1); 
+        box-shadow: 0 0 50px rgba(255, 250, 205, 0.6); 
       }
-
-
-       /* Loader Content */
-      .loading-content {
-        position: fixed;
-        width: 70%;
-        height: 70%;
-        text-align: center;
-        color: white;
-        z-index: 1;
-        position: relative;
+      50% { 
+        transform: scale(1.1); 
+        box-shadow: 0 0 70px rgba(255, 250, 205, 0.9); 
       }
+    }
 
-      .loading-text {
-        font-size: 30px;
-        letter-spacing: 2px;
+    /* Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 20px;
+      transform: translate(-50%, -50%);
+      border-radius: 50px;
+      padding: 5px;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 50px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
 
-        position: fixed;       
-        top: 37%;              
-        left: 50%; 
-        transform: translate(-50%, -50%);
-      }
+    /* Enter Button */
+    #enter-btn {
+      position: fixed;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px 50px;
+      font-size: 20px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: rgba(255, 250, 205, 0.3);
+      border: 2px solid rgba(255, 250, 205, 0.5);
+      border-radius: 50px;
+      color: rgba(255, 250, 205, 0.5);
+      cursor: not-allowed;
+      pointer-events: auto;
+      transition: all 0.3s ease;
+    }
 
-      
-      /* Moon Loader */
-      .moon-loader {
-        width: 10vw;
-        height: 10vw;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #f5f5dc 0%, #fffacd 100%);
-        box-shadow: 0 0 40px rgba(255, 250, 205, 0.6);
-        animation: pulse 2s ease-in-out infinite;
-        margin-bottom: 30px;
-
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(255, 250, 205, 0.6); }
-          50% { transform: scale(1.1); box-shadow: 0 0 70px rgba(255, 250, 205, 0.9); }
-        }
-      }
-
-
-
-
-      /* Progress Bar */
-      .progress-container {
-        position: fixed;       
-        top: 50%;              
-        left: 50%;    
-        width: 50%;
-        height: 20px;
-        transform: translate(-50%, -50%);
-
-
-        border-radius: 50px;
-        padding: 5px;
-        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
-        background: rgba(255, 255, 255, 0.1);
-        margin-bottom: 50px;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-      }
-
-      /* Enter Button */
-      #enter-btn {
-        position: fixed;       
-        top: 65%;              
-        left: 50%; 
-        transform: translate(-50%, -50%);
-        padding: 15px 50px;
-        font-size: 20px;
-        letter-spacing: 3px;
-        font-weight: bold;
-        text-transform: uppercase;
-        
-        background: rgba(255, 250, 205, 0.3);
-        border: 2px solid rgba(255, 250, 205, 0.5);
-        border-radius: 50px;
-        color: rgba(255, 250, 205, 0.5);
-        cursor: not-allowed;
-        pointer-events: auto;
-        transition: all 0.3s ease;
-      }
-      
     </style>
 
-    
   </head>
   <body>
 
@@ -291,13 +287,14 @@
               </div>
               <div class="category-content active">
                 <div class="skills-grid">
+
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/python.svg" alt="Python">   </div><div class="skill-name">Python</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/c++.svg" alt="C++">      </div><div class="skill-name">C++</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/c++++.svg" alt="C#">       </div><div class="skill-name">C#</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/ruby.svg" alt="Ruby">     </div><div class="skill-name">Ruby</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/kotlin.svg" alt="Kotlin">   </div><div class="skill-name">Kotlin</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/java.svg" alt="Java">     </div><div class="skill-name">Java</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/go.svg" alt="Go">       </div><div class="skill-name">Go</div></div>
+
                 </div>
               </div>
             </div>
@@ -311,17 +308,19 @@
               </div>
               <div class="category-content">
                 <div class="skills-grid">
+
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/tenserflow.svg" alt="Tensorflow">    </div><div class="skill-name">TensorFlow</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/pytorch.svg" alt="Pytorch">          </div><div class="skill-name">Pytorch</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/spark.svg" alt="Spark">              </div><div class="skill-name">Spark</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/mangodb.svg" alt="MangoDB">          </div><div class="skill-name">MangoDB</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/mangodb.svg" alt="MongoDB">          </div><div class="skill-name">MongoDB</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/kafka.svg" alt="Kafka">              </div><div class="skill-name">Kafka</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/mysql.svg" alt="MySQL">              </div><div class="skill-name">MySQL</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/nosql.svg" alt="NoSQL">              </div><div class="skill-name">NoSQL</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/panda.svg" alt="Pandas">             </div><div class="skill-name">Pandas</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/matplotlib.svg" alt="Matplotlib">    </div><div class="skill-name">Matplotlib</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/aws.svg" alt="AWS">                  </div><div class="skill-name">AWS</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/opencv.svg" alt="OpenCV">            </div><div class="skill-name">OpenCV</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/numpy.svg" alt="NumPy">            </div><div class="skill-name">NumPy</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/numpy.svg" alt="NumPy">              </div><div class="skill-name">NumPy</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/nvidia.svg" alt="CUDA">              </div><div class="skill-name">CUDA</div></div>
+
                 </div>
               </div>
             </div>
@@ -335,6 +334,7 @@
               </div>
               <div class="category-content">
                 <div class="skills-grid">
+
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/js.svg" alt="JavaScript">              </div><div class="skill-name">JavaScript</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/html.svg" alt="HTML">                  </div><div class="skill-name">HTML</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/css.svg" alt="CSS">                    </div><div class="skill-name">CSS</div></div>
@@ -343,6 +343,7 @@
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/flask.svg" alt="Flask">                </div><div class="skill-name">Flask</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/3js.svg" alt="Three.js">           </div><div class="skill-name">Three.js</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/nodejs.svg" alt="Node.js">             </div><div class="skill-name">Node.js</div></div>
+
                 </div>
               </div>
             </div>
@@ -356,12 +357,14 @@
               </div>
               <div class="category-content">
                 <div class="skills-grid">
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/nvidia.svg" alt="Nvidia">                </div><div class="skill-name">Jetson&CUDA</div></div>
+
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/nvidia.svg" alt="Nvidia">                </div><div class="skill-name">Jetson</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/rasberry.svg" alt="Raspberry Pi">        </div><div class="skill-name">Raspberry Pi</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/arduino.svg" alt="Arduino">              </div><div class="skill-name">Arduino</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/arduino.svg" alt="Arduino">              </div><div class="skill-name">Arduino/Esp</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/asm.svg" alt="Assembly">                 </div><div class="skill-name">Assembly</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/c.svg" alt="C">                          </div><div class="skill-name">Embedded C</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/cpu.svg" alt="CPU">                      </div><div class="skill-name">VHDL/Verilog</div></div>
+
                 </div>
               </div>
             </div>
@@ -375,13 +378,17 @@
               </div>
               <div class="category-content">
                 <div class="skills-grid">
+
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/blender.svg" alt="Blender">                </div><div class="skill-name">Blender</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/git.svg" alt="Git">                        </div><div class="skill-name">Git</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/docker.svg" alt="Docker">                  </div><div class="skill-name">Docker</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/kali.svg" alt="Kali Linux">                </div><div class="skill-name">Kali Linux</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/kubernetes.svg" alt="Kubernetes">          </div><div class="skill-name">Kubernetes</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/ue.svg" alt="Unreal Engine">               </div><div class="skill-name">Unreal Engine</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/unity.svg" alt="Unity">                    </div><div class="skill-name">Unity</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/adobe.svg" alt="Adobe Suite">              </div><div class="skill-name">Adobe Suite</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/vulkan.svg" alt="Vulkan">                  </div><div class="skill-name">Vulkan</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/opengl.svg" alt="OpenGL">                  </div><div class="skill-name">OpenGL</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/kali.svg" alt="Kali Linux">                </div><div class="skill-name">Kali Linux</div></div>
+                  
                 </div>
               </div>
             </div>
@@ -728,7 +735,7 @@
               <button type="submit" id="submit-button" data-en="Submit" data-fr="Envoyer">Submit</button>
 
               
-              <a href="https://www.linkedin.com/in/fianso-nairs-700178301/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/fianso-700178301/" target="_blank" rel="noopener noreferrer">
                 <img src="/src/favicon/linkedin.svg" alt="Linkedin" class="contact-icon linkedin-favicon">
               </a>
 
@@ -838,33 +845,27 @@
     <!---------- JavaScript Code ------------>
     <script type="module" src="/src/main.js"></script>
 
-    <!------ Loading Screen  -------->
     <script>
       const starsBg = document.getElementById('stars-bg');
 
       function createStars(count = 200) {
+        if(!starsBg) return;
         for (let i = 0; i < count; i++) {
           const star = document.createElement('div');
           star.className = 'star';
           const size = Math.random() * 3 + 1;
-          const top = Math.random() * 100;
-          const left = Math.random() * 100;
           star.style.width = size + 'px';
           star.style.height = size + 'px';
-          star.style.top = top + '%';
-          star.style.left = left + '%';
+          star.style.top = Math.random() * 100 + '%';
+          star.style.left = Math.random() * 100 + '%';
           star.style.animationDelay = Math.random() * 3 + 's';
           star.style.animationDuration = (Math.random() * 2 + 2) + 's';
           starsBg.appendChild(star);
         }
       }
-
-      window.addEventListener('load', () => {
-        createStars();
-      });
+      window.addEventListener('load', () => createStars());
     </script>
 
-    <!------ Language Toggle -------->
     <script>
       let currentLanguage = 'en';
       const languageToggle = document.getElementById('language-toggle');
@@ -872,11 +873,10 @@
       function toggleLanguage() {
         currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
         updateLanguage();
-        languageToggle.textContent = currentLanguage.toUpperCase();
+        if(languageToggle) languageToggle.textContent = currentLanguage.toUpperCase();
       }
 
       function updateLanguage() {
-        // Update all elements with data attributes
         document.querySelectorAll('[data-en]').forEach(element => {
           if (element.hasAttribute('data-en-placeholder')) {
             element.placeholder = currentLanguage === 'en' 
@@ -890,17 +890,15 @@
         });
       }
 
-      languageToggle.addEventListener('click', toggleLanguage);
+      if(languageToggle) languageToggle.addEventListener('click', toggleLanguage);
     </script>
 
-    <!------ About Module -------->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll(".section");
         const subSectionGroups = document.querySelectorAll(".sub-section-group");
         const subSectionTitles = document.querySelectorAll(".sub-section-title");
 
-        // Section click handler
         sections.forEach((section) => {
           section.addEventListener("click", () => {
             if (!section.classList.contains("active")) {
@@ -910,16 +908,16 @@
               section.classList.add("active");
               const sectionId = section.getAttribute("data-sub");
               const group = document.querySelector(`.sub-section-group[data-for="${sectionId}"]`);
-              group.classList.add("active");
-
-              group.querySelectorAll(".sub-section").forEach((s, i) => {
-                s.classList.toggle("sub-active", i === 0);
-              });
+              if(group) {
+                group.classList.add("active");
+                group.querySelectorAll(".sub-section").forEach((s, i) => {
+                  s.classList.toggle("sub-active", i === 0);
+                });
+              }
             }
           });
         });
 
-        // Sub-section title click handler
         subSectionTitles.forEach((title) => {
           title.addEventListener("click", () => {
             const subSection = title.parentElement;
@@ -933,69 +931,54 @@
       });
     </script>
 
-
-    <!------ Skill Module -------->
     <script>
-      function toggleCategory(header) {
-        const content = header.nextElementSibling;
-        const icon = header.querySelector('.toggle-icon');
-        content.classList.toggle('active');
-        icon.textContent = content.classList.contains('active') ? '-' : '+';
-        header.dataset.expanded = content.classList.contains('active');
-      }
-
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.category-header').forEach(header => {
-          const content = header.nextElementSibling;
-          const icon = header.querySelector('.toggle-icon');
-          icon.textContent = content.classList.contains('active') ? '-' : '+';
+            // Remove old listeners to prevent duplicates if any
+            const newHeader = header.cloneNode(true);
+            header.parentNode.replaceChild(newHeader, header);
+            
+            newHeader.addEventListener('click', () => {
+                const content = newHeader.nextElementSibling;
+                const icon = newHeader.querySelector('.toggle-icon');
+                content.classList.toggle('active');
+                icon.textContent = content.classList.contains('active') ? '-' : '+';
+            });
         });
       });
     </script>
 
-
-
-  <!------ Contact Module -------->
   <script>
     const form = document.getElementById('form');
     const submitBtn = document.getElementById('submit-button');
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    if(form) {
+      form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(form);
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = "Sending...";
+          submitBtn.disabled = true;
 
-        const formData = new FormData(form);
-        const originalText = submitBtn.textContent;
-
-        submitBtn.textContent = "Sending...";
-        submitBtn.disabled = true;
-
-        try {
-            const response = await fetch(form.action, {
-                method: "POST",
-                body: formData
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                alert("✅ Success! Your message has been sent.");
-                form.reset();
-            } else {
-                alert("❌ Error: " + data.message);
-            }
-
-        } catch (error) {
-            alert("❌ Something went wrong. Please try again.");
-            console.error(error);
-        } finally {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }
-    });
+          try {
+              const response = await fetch(form.action, { method: "POST", body: formData });
+              const data = await response.json();
+              if (response.ok) {
+                  alert("✅ Success! Your message has been sent.");
+                  form.reset();
+              } else {
+                  alert("❌ Error: " + data.message);
+              }
+          } catch (error) {
+              alert("❌ Something went wrong.");
+          } finally {
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+          }
+      });
+    }
   </script>
 
-
-  <!------ Project Module -------->
   <script>
     let currentPosition = 0;
     const totalProjects = 5;
@@ -1003,114 +986,41 @@
     const currentProjectElement = document.getElementById('current-project');
     const totalProjectsElement = document.getElementById('total-projects');
 
-    totalProjectsElement.textContent = totalProjects;
+    if(totalProjectsElement) totalProjectsElement.textContent = totalProjects;
 
     function moveCarousel(direction) {
         currentPosition += direction;
-        
         if (currentPosition >= totalProjects) currentPosition = 0;
         else if (currentPosition < 0) currentPosition = totalProjects - 1;
-        
         updateCarousel();
     }
 
     function updateCarousel() {
         const projects = document.querySelectorAll('.project');
-        
         projects.forEach((project, index) => {
             let position = index - currentPosition;
-            
             if (position > 2) position -= totalProjects;
             else if (position < -2) position += totalProjects;
-            
             project.setAttribute('data-position', position);
         });
-        
-        currentProjectElement.textContent = currentPosition + 1;
+        if(currentProjectElement) currentProjectElement.textContent = currentPosition + 1;
     }
 
-    // Initialize carousel
-    updateCarousel();
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') moveCarousel(-1);
-        else if (e.key === 'ArrowRight') moveCarousel(1);
-    });
-
-    // Swipe support
-    let touchStartX = 0, touchEndX = 0;
-
-    carousel.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX);
-    carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const difference = touchStartX - touchEndX;
-        const swipeThreshold = 50;
+    if(carousel) {
+        updateCarousel();
         
-        if (Math.abs(difference) > swipeThreshold) {
-            if (difference > 0) moveCarousel(1);
-            else moveCarousel(-1);
-        }
+        // Touch handling specifically for carousel (only logic needed)
+        let touchStartX = 0;
+        carousel.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX, {passive: true});
+        carousel.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            if (Math.abs(touchStartX - touchEndX) > 50) {
+                if (touchStartX - touchEndX > 0) moveCarousel(1);
+                else moveCarousel(-1);
+            }
+        });
     }
     </script>
-
-
-
-    <!------ Touch Screen Fixes -------->
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-
-      // TAP HANDLER
-      const tappable = document.querySelectorAll(
-        '.section, .sub-section-title, .category-header, .nav-arrow, .model-exit, #language-toggle, .mute-toggle-button, #enter-btn'
-      );
-
-      tappable.forEach(el => {
-        el.addEventListener('touchstart', () => el.click(), { passive: true });
-      });
-
-      // SCROLLABLE BLOCKS
-      const skillsBlock = document.querySelector('.skills-block');
-      if (skillsBlock) {
-        skillsBlock.addEventListener('touchstart', e => {
-          e.stopPropagation();
-          if (skillsBlock.scrollTop === 0) skillsBlock.scrollTop = 1;
-          else if (skillsBlock.scrollTop + skillsBlock.offsetHeight >= skillsBlock.scrollHeight)
-            skillsBlock.scrollTop -= 1;
-        }, { passive: false });
-        skillsBlock.addEventListener('touchmove', e => e.stopPropagation(), { passive: false });
-      }
-
-      const aboutBlocks = document.querySelectorAll('.sub-section-text');
-      aboutBlocks.forEach(block => {
-        block.addEventListener('touchstart', e => {
-          e.stopPropagation();
-          if (block.scrollTop === 0) block.scrollTop = 1;
-          else if (block.scrollTop + block.offsetHeight >= block.scrollHeight)
-            block.scrollTop -= 1;
-        }, { passive: false });
-        block.addEventListener('touchmove', e => e.stopPropagation(), { passive: false });
-      });
-
-      const workBlocks = document.querySelectorAll('.project-content');
-      workBlocks.forEach(block => {
-        block.addEventListener('touchstart', e => {
-          e.stopPropagation();
-          if (block.scrollTop === 0) block.scrollTop = 1;
-          else if (block.scrollTop + block.offsetHeight >= block.scrollHeight)
-            block.scrollTop -= 1;
-        }, { passive: false });
-        block.addEventListener('touchmove', e => e.stopPropagation(), { passive: false });
-      });
-
-    });
-
-    </script>
-
 
   </body>
 </html>
