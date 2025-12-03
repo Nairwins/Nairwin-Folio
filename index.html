@@ -105,6 +105,7 @@
       pointer-events: auto;
       transition: all 0.3s ease;
     }
+    
 
     </style>
 
@@ -304,7 +305,7 @@
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
                 <span data-en="AI/ML & Data" data-fr="IA/ML & Données">AI/ML & Data</span>
-                <span class="toggle-icon">-</span>
+                <span class="toggle-icon">+</span>
               </div>
               <div class="category-content">
                 <div class="skills-grid">
@@ -330,7 +331,7 @@
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
                 <span data-en="Web Development" data-fr="Développement Web">Web Development</span>
-                <span class="toggle-icon">-</span>
+                <span class="toggle-icon">+</span>
               </div>
               <div class="category-content">
                 <div class="skills-grid">
@@ -353,7 +354,7 @@
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
                 <span data-en="Hardware / IOT" data-fr="Matériel / IOT">Hardware / IOT</span>
-                <span class="toggle-icon">-</span>
+                <span class="toggle-icon">+</span>
               </div>
               <div class="category-content">
                 <div class="skills-grid">
@@ -374,7 +375,7 @@
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
                 <span data-en="Others" data-fr="Autres">Others</span>
-                <span class="toggle-icon">-</span>
+                <span class="toggle-icon">+</span>
               </div>
               <div class="category-content">
                 <div class="skills-grid">
@@ -570,7 +571,7 @@
 
 
             <!-- Project 4 -->
-            <div class="project" data-position="-2">
+            <div class="project" data-position="3">
               <div class="project-image"><img src="/images/WUWA.png" alt="AI Assistant" /></div>
               <div class="project-content">
                 <h2 class="project-title" data-en="WUWA The Smart Door App" data-fr="WUWA L'Application de Porte Intelligente"> WUWA The Smart Door App </h2>
@@ -614,8 +615,61 @@
 
 
 
-
             <!-- Project 5 -->
+            <div class="project" data-position="-2">
+              <div class="project-image"><img src="/images/BlackHole.png" alt="Black Hole Simulation" /></div>
+              <div class="project-content">
+                <h2 class="project-title" data-en="Black-Hole Simulation" data-fr="Simulation de Trou Noir">Black-Hole Simulation</h2>
+
+                <p class="project-description" 
+                  data-en="Explored how light bends around one of the largest black holes known, Ton618, using C++ simulations with three approaches: 2D ray tracing, 3D OpenGL rendering, and a fully realistic visualization." 
+                  data-fr="Exploration de la façon dont la lumière se courbe autour de l'un des plus grands trous noirs connus, Ton618, à l'aide de simulations C++ avec trois approches : traçage de rayons 2D, rendu 3D OpenGL et visualisation réaliste complète.">
+                  Explored how light bends around one of the largest black holes known, Ton618, using C++ simulations with three approaches: 2D ray tracing, 3D OpenGL rendering, and a fully realistic visualization.
+                </p>
+
+                <p class="project-description" 
+                  data-en="strong>2D Ray Tracing:/strong> Minimal 2D simulation using the Schwarzschild formula to visualize how rays curve near the black hole’s center." 
+                  data-fr="strong>Ray Tracing 2D :/strong> Simulation 2D minimale utilisant la formule de Schwarzschild pour visualiser la courbure des rayons près du centre du trou noir.">
+                  <strong>2D Ray Tracing:</strong> Minimal 2D simulation using the Schwarzschild formula to visualize how rays curve near the black hole’s center.
+                </p>
+
+                <p class="project-description" 
+                  data-en="strong>3D OpenGL Simulation:/strong> Extended into 3D with CUDA acceleration for heavy computations, allowing real-time visualization of bending rays in space." 
+                  data-fr="strong>Simulation 3D OpenGL :/strong> Extension en 3D avec accélération CUDA pour les calculs lourds, permettant de visualiser en temps réel les rayons se courbant dans l'espace.">
+                  <strong>3D OpenGL Simulation:</strong> Extended into 3D with CUDA acceleration for heavy computations, allowing real-time visualization of bending rays in space.
+                </p>
+
+                <p class="project-description" 
+                  data-en="strong>Ton618 Realistic Visualization:/strong> Added spinning accretion disks, gravitational lensing, and Doppler color shifts for a lifelike black hole simulation." 
+                  data-fr="strong>Visualisation réaliste de Ton618 :/strong> Ajout de disques d'accrétion en rotation, lentille gravitationnelle et décalages de couleur Doppler pour une simulation réaliste du trou noir.">
+                  <strong>Ton618 Realistic Visualization:</strong> Added spinning accretion disks, gravitational lensing, and Doppler color shifts for a lifelike black hole simulation.
+                </p>
+
+                <p class="project-description" 
+                  data-en="This project was a fun way to combine physics, GPU computing, and graphics programming. Watching light bend in 3D space was truly amazing." 
+                  data-fr="Ce projet a été un moyen amusant de combiner physique, calcul GPU et programmation graphique. Voir la lumière se courber dans l'espace 3D était vraiment impressionnant.">
+                  This project was a fun way to combine physics, GPU computing, and graphics programming. Watching light bend in 3D space was truly amazing.
+                </p>
+                
+
+                <hr>
+
+                <p class="project-skills" 
+                  data-en="Skills: C++, CUDA, OpenGL, GLSL/Shaders, Ray Tracing, General Relativity, Parallel Computing, Physical Simulation, Performance Optimization" 
+                  data-fr="Compétences : C++, CUDA, OpenGL, GLSL/Shaders, Tracé de Rayons, Relativité Générale, Calcul Parallèle, Simulation Physique, Optimisation des Performances">
+                  Skills: C++, CUDA, OpenGL, GLSL/Shaders, Ray Tracing, General Relativity, Parallel Computing, Physical Simulation, Performance Optimization
+                </p>
+
+              </div>
+            </div>
+
+
+
+
+
+
+
+            <!-- Project 6 -->
             <div class="project" data-position="-1">
               <div class="project-image"><img src="/images/UE5.png" alt="AI Assistant" /></div>
               <div class="project-content">
@@ -845,6 +899,7 @@
     <!---------- JavaScript Code ------------>
     <script type="module" src="/src/main.js"></script>
 
+    <!----------  Loading Screen ------------>
     <script>
       const starsBg = document.getElementById('stars-bg');
 
@@ -866,6 +921,8 @@
       window.addEventListener('load', () => createStars());
     </script>
 
+
+    <!----------  Language Toggle ------------>
     <script>
       let currentLanguage = 'en';
       const languageToggle = document.getElementById('language-toggle');
@@ -893,6 +950,8 @@
       if(languageToggle) languageToggle.addEventListener('click', toggleLanguage);
     </script>
 
+
+    <!----------  About Toggle ------------>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll(".section");
@@ -931,6 +990,8 @@
       });
     </script>
 
+
+    <!----------  Skills Toggle ------------>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.category-header').forEach(header => {
@@ -948,79 +1009,83 @@
       });
     </script>
 
-  <script>
-    const form = document.getElementById('form');
-    const submitBtn = document.getElementById('submit-button');
 
-    if(form) {
-      form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const formData = new FormData(form);
-          const originalText = submitBtn.textContent;
-          submitBtn.textContent = "Sending...";
-          submitBtn.disabled = true;
+    <!----------  Contact Toggle ------------>
+    <script>
+      const form = document.getElementById('form');
+      const submitBtn = document.getElementById('submit-button');
 
-          try {
-              const response = await fetch(form.action, { method: "POST", body: formData });
-              const data = await response.json();
-              if (response.ok) {
-                  alert("✅ Success! Your message has been sent.");
-                  form.reset();
-              } else {
-                  alert("❌ Error: " + data.message);
-              }
-          } catch (error) {
-              alert("❌ Something went wrong.");
-          } finally {
-              submitBtn.textContent = originalText;
-              submitBtn.disabled = false;
-          }
-      });
-    }
-  </script>
+      if(form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
 
-  <script>
-    let currentPosition = 0;
-    const totalProjects = 5;
-    const carousel = document.getElementById('carousel');
-    const currentProjectElement = document.getElementById('current-project');
-    const totalProjectsElement = document.getElementById('total-projects');
-
-    if(totalProjectsElement) totalProjectsElement.textContent = totalProjects;
-
-    function moveCarousel(direction) {
-        currentPosition += direction;
-        if (currentPosition >= totalProjects) currentPosition = 0;
-        else if (currentPosition < 0) currentPosition = totalProjects - 1;
-        updateCarousel();
-    }
-
-    function updateCarousel() {
-        const projects = document.querySelectorAll('.project');
-        projects.forEach((project, index) => {
-            let position = index - currentPosition;
-            if (position > 2) position -= totalProjects;
-            else if (position < -2) position += totalProjects;
-            project.setAttribute('data-position', position);
-        });
-        if(currentProjectElement) currentProjectElement.textContent = currentPosition + 1;
-    }
-
-    if(carousel) {
-        updateCarousel();
-        
-        // Touch handling specifically for carousel (only logic needed)
-        let touchStartX = 0;
-        carousel.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX, {passive: true});
-        carousel.addEventListener('touchend', (e) => {
-            const touchEndX = e.changedTouches[0].screenX;
-            if (Math.abs(touchStartX - touchEndX) > 50) {
-                if (touchStartX - touchEndX > 0) moveCarousel(1);
-                else moveCarousel(-1);
+            try {
+                const response = await fetch(form.action, { method: "POST", body: formData });
+                const data = await response.json();
+                if (response.ok) {
+                    alert("✅ Success! Your message has been sent.");
+                    form.reset();
+                } else {
+                    alert("❌ Error: " + data.message);
+                }
+            } catch (error) {
+                alert("❌ Something went wrong.");
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             }
         });
-    }
+      }
     </script>
+
+
+    <!----------  Project Toggle ------------>
+    <script>
+      let currentPosition = 0;
+      const totalProjects = 6;
+      const carousel = document.getElementById('carousel');
+      const currentProjectElement = document.getElementById('current-project');
+      const totalProjectsElement = document.getElementById('total-projects');
+
+      if(totalProjectsElement) totalProjectsElement.textContent = totalProjects;
+
+      function moveCarousel(direction) {
+          currentPosition += direction;
+          if (currentPosition >= totalProjects) currentPosition = 0;
+          else if (currentPosition < 0) currentPosition = totalProjects - 1;
+          updateCarousel();
+      }
+
+      function updateCarousel() {
+          const projects = document.querySelectorAll('.project');
+          projects.forEach((project, index) => {
+              let position = index - currentPosition;
+              if (position > 2) position -= totalProjects;
+              else if (position < -2) position += totalProjects;
+              project.setAttribute('data-position', position);
+          });
+          if(currentProjectElement) currentProjectElement.textContent = currentPosition + 1;
+      }
+
+      if(carousel) {
+          updateCarousel();
+          
+          // Touch handling specifically for carousel (only logic needed)
+          let touchStartX = 0;
+          carousel.addEventListener('touchstart', (e) => touchStartX = e.changedTouches[0].screenX, {passive: true});
+          carousel.addEventListener('touchend', (e) => {
+              const touchEndX = e.changedTouches[0].screenX;
+              if (Math.abs(touchStartX - touchEndX) > 50) {
+                  if (touchStartX - touchEndX > 0) moveCarousel(1);
+                  else moveCarousel(-1);
+              }
+          });
+      }
+      </script>
 
   </body>
 </html>

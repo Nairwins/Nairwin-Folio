@@ -238,6 +238,7 @@ const hideModel = (model) => {
 }
 
 // --- MUTE TOGGLE LOGIC ---
+
 const muteButton = document.querySelector(".mute-toggle-button");
 const soundOff = document.querySelector(".sound-off-svg");
 const soundOn = document.querySelector(".sound-on-svg");
@@ -291,6 +292,7 @@ ln.addEventListener("click", () => {
   bloop.play();
   ln.classList.add("pressed");
   setTimeout(() => { ln.classList.remove("pressed"); }, 200);
+  ln.blur();
 });
 
 
