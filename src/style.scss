@@ -372,6 +372,34 @@
   
 }
 
+
+
+.sub-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  max-width: calc(100% - 50px); 
+  font-size: 1rem; 
+  white-space: normal;
+}
+
+.sub-section-title img.subsection-icon {
+  flex-shrink: 0;
+  width: 40px; 
+  height: 40px;
+}
+
+.cert-title {
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.cert-list {
+  margin-left: 16px;
+  list-style-type: disc;
+}
+
+
 /* Show active sub-section group */
 .sub-section-group.active {
   opacity: 1;
@@ -519,6 +547,50 @@
   background: linear-gradient(90deg, #0cffaa, var(--transparent) 100%);
 }
 
+
+/* ============================================================
+   CERTIFICATES (Brand colors & font)
+   ============================================================ */
+.cert-title {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  font-family: var(--secondary-font);
+  transition: all 0.2s ease;
+  cursor: default;
+
+  &:hover {
+    text-shadow: 0 0 1px currentColor;
+    filter: brightness(1.1);
+  }
+}
+
+
+/* Brand colors */
+.cert-nvidia { color: #76B900; }
+.cert-stanford { color: #8C1515; }
+.cert-ibm { color: #00AEEF; }
+.cert-arm { color: #003366; }
+.cert-aws { color: #FF9900; }
+.cert-alberta { color: #006400; }
+
+.cert-list {
+  margin-left: 16px;
+  list-style-type: disc;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+
+.sub-section-text ul {
+  padding-left: 20px;
+}
+
+.sub-section-text ul li {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
 
 
 
