@@ -359,13 +359,14 @@
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/tenserflow.svg" alt="Tensorflow">    </div><div class="skill-name">TensorFlow</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/pytorch.svg" alt="Pytorch">          </div><div class="skill-name">Pytorch</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/spark.svg" alt="Spark">              </div><div class="skill-name">Spark</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/mangodb.svg" alt="MongoDB">          </div><div class="skill-name">MongoDB</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/kafka.svg" alt="Kafka">              </div><div class="skill-name">Kafka</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/triton.svg" alt="Triton">            </div><div class="skill-name">Triton</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/mysql.svg" alt="MySQL">              </div><div class="skill-name">MySQL</div></div>
-                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/nosql.svg" alt="NoSQL">              </div><div class="skill-name">NoSQL</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/mangodb.svg" alt="MongoDB">          </div><div class="skill-name">MongoDB</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/aws.svg" alt="AWS">                  </div><div class="skill-name">AWS</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/opencv.svg" alt="OpenCV">            </div><div class="skill-name">OpenCV</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/numpy.svg" alt="NumPy">              </div><div class="skill-name">NumPy</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/numba.svg" alt="Numba">              </div><div class="skill-name">Numba</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/nvidia.svg" alt="CUDA">              </div><div class="skill-name">CUDA</div></div>
 
                 </div>
@@ -399,18 +400,20 @@
             <!-- ========== Hardware ========== -->
             <div class="skill-category">
               <div class="category-header" onclick="toggleCategory(this)">
-                <span data-en="Hardware / IOT" data-fr="Matériel / IOT">Hardware / IOT</span>
+                <span data-en="Hardware / IOT" data-fr="Matériel / IOT">Hardware / Robotics</span>
                 <span class="toggle-icon">+</span>
               </div>
               <div class="category-content">
                 <div class="skills-grid">
-
+                  
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/omniverse.svg" alt="Omniverse">          </div><div class="skill-name">Omniverse</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/nvidia.svg" alt="Nvidia">                </div><div class="skill-name">Jetson</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/rasberry.svg" alt="Raspberry Pi">        </div><div class="skill-name">Raspberry Pi</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/arduino.svg" alt="Arduino">              </div><div class="skill-name">Arduino/Esp</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/asm.svg" alt="Assembly">                 </div><div class="skill-name">Assembly</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/c.svg" alt="C">                          </div><div class="skill-name">Embedded C</div></div>
                   <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/cpu.svg" alt="CPU">                      </div><div class="skill-name">VHDL/Verilog</div></div>
+                  <div class="skill-item">  <div class="skill-icon">  <img src="/src/icons/ros.svg" alt="ROS">                      </div><div class="skill-name">ROS</div></div>
 
                 </div>
               </div>
@@ -615,53 +618,7 @@
 
 
 
-
             <!-- Project 4 -->
-            <div class="project" data-position="3">
-              <div class="project-image"><img src="/images/WUWA.png" alt="AI Assistant" /></div>
-              <div class="project-content">
-                <h2 class="project-title" data-en="WUWA The Smart Door App" data-fr="WUWA L'Application de Porte Intelligente"> WUWA The Smart Door App </h2>
-
-                <p class="project-description"
-                  data-en="WUWA is a voice-activated smart door system, that uses Voice Recognition to authenticate users before executing commands (open, close, lock) with Speech-To-Text." 
-                  data-fr="WUWA est un système de porte intelligente activé par la voix, qui utilise la Reconnaissance Vocale pour authentifier les utilisateurs avant d'exécuter les commandes (ouvrir, fermer, verrouiller) avec la Reconnaissance Vocale.">
-                   WUWA is a voice-activated smart door system, that uses Voice Recognition to authenticate users before executing commands (open, close, lock) with Speech-To-Text.
-                </p>
-
-                <p class="project-description" data-en="The system leverages a Raspberry Pi for real-time edge processing and motor control, converting authenticated voice commands (via STT) directly into mechanical outputs to physically manipulate the mechanism." 
-                   data-fr="Le système utilise un Raspberry Pi pour le traitement en temps réel en périphérie et le contrôle des moteurs, convertissant les commandes vocales authentifiées (via STT) directement en sorties mécaniques pour manipuler physiquement le mécanisme.">
-                   The system leverages a Raspberry Pi for real-time edge processing and motor control, converting authenticated voice commands (via STT) directly into mechanical outputs to physically manipulate the mechanism.
-                </p>
-
-                <p class="project-description"
-                  data-en="The end Goal is to achieve a Keyless automated real sized door, with cool and stylized way to control the secured entrance." 
-                  data-fr="L'objectif final est d'atteindre une porte de taille réelle automatisée sans clé, avec une manière cool et stylisée de contrôler l'entrée sécurisée.">
-                   The end Goal is to achieve a Keyless automated real sized door, with cool and stylized way to control the secured entrance.
-                </p>
-
-                <p class="project-description"
-                  data-en="A dedicated mobile application is In Development to manage user credentials add or remove users using a secure QR code, to dynamically train and add their voice models to the Raspberry Pi unit via the Flask Backend." 
-                  data-fr="Une application mobile dédiée est en développement pour gérer les identifiants des utilisateurs, ajouter ou supprimer des utilisateurs en utilisant un code QR sécurisé, pour former dynamiquement et ajouter leurs modèles vocaux à l'unité Raspberry Pi via le Backend Flask.">
-                   A dedicated mobile application is In Development to manage user credentials add or remove users using a secure QR code, to dynamically train and add their voice models to the Raspberry Pi unit via the Flask Backend.
-                </p>
-                
-                <hr>
-
-                <p class="project-skills" 
-                  data-en="Skills: Voice Recognition, Speech-To-Text, PyQT, Raspberry, Embedded System, Edge Device, Mobile App, Flask, GUI" 
-                  data-fr="Compétences : Reconnaissance Vocale, Reconnaissance Vocale, PyQT, Raspberry, Système Embarqué, Appareil en Périphérie, Application Mobile, Flask, Interface Graphique">
-                   Skills: Voice Recognition, Speech-To-Text, PyQT, Raspberry, Embedded System, Edge Device, Mobile App, Flask, GUI
-                </p>
-
-              </div>
-            </div>
-
-
-
-
-
-
-            <!-- Project 5 -->
             <div class="project" data-position="-2">
               <div class="project-image"><img src="/images/BlackHole.png" alt="Black Hole Simulation" /></div>
               <div class="project-content">
@@ -715,7 +672,7 @@
 
 
 
-            <!-- Project 6 -->
+            <!-- Project 5 -->
             <div class="project" data-position="-1">
               <div class="project-image"><img src="/images/UE5.png" alt="AI Assistant" /></div>
               <div class="project-content">
@@ -969,69 +926,64 @@
 
 
     <!----------  Language Toggle ------------>
-    <script>
-  let currentLanguage = 'en';
-  const languageToggle = document.getElementById('language-toggle');
+        <script>
+      let currentLanguage = 'en';
+      const languageToggle = document.getElementById('language-toggle');
 
-  function toggleLanguage() {
-    currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
-    updateLanguage();
-    if(languageToggle) languageToggle.textContent = currentLanguage.toUpperCase();
-  }
-
-  function updateLanguage() {
-    // 1. Handle all elements with data-en attributes (Titles, Spans, Paragraphs)
-    document.querySelectorAll('[data-en]').forEach(element => {
-      // If it's a placeholder (for contact form)
-      if (element.hasAttribute('data-en-placeholder')) {
-        element.placeholder = currentLanguage === 'en' 
-          ? element.getAttribute('data-en-placeholder') 
-          : element.getAttribute('data-fr-placeholder');
-      } 
-      // If it's a standard text element
-      else {
-        // We use textContent because we wrapped our text in <span>
-        // This preserves any <img> tags that are outside the <span>
-        element.textContent = currentLanguage === 'en' 
-          ? element.getAttribute('data-en') 
-          : element.getAttribute('data-fr');
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+        updateLanguage();
+        if(languageToggle) languageToggle.textContent = currentLanguage.toUpperCase();
       }
-    });
 
-    // 2. Sync the About section specific logic if needed
-    if(window.switchAboutLanguage) window.switchAboutLanguage(currentLanguage);
-  }
+      function updateLanguage() {
+        document.querySelectorAll('[data-en]').forEach(element => {
+          if (element.hasAttribute('data-en-placeholder')) {
+            element.placeholder = currentLanguage === 'en' 
+              ? element.getAttribute('data-en-placeholder') 
+              : element.getAttribute('data-fr-placeholder');
+          } 
+          else {
+            element.textContent = currentLanguage === 'en' 
+              ? element.getAttribute('data-en') 
+              : element.getAttribute('data-fr');
+          }
+        });
 
-  if(languageToggle) languageToggle.addEventListener('click', toggleLanguage);
-</script>
+        // 2. Sync the About section specific logic if needed
+        if(window.switchAboutLanguage) window.switchAboutLanguage(currentLanguage);
+      }
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".section");
-    const subSectionGroups = document.querySelectorAll(".sub-section-group");
-    const subSectionTitles = document.querySelectorAll(".sub-section-title");
+      if(languageToggle) languageToggle.addEventListener('click', toggleLanguage);
+    </script>
 
-    // Menu Navigation
-    sections.forEach((section) => {
-      section.addEventListener("click", () => {
-        sections.forEach((s) => s.classList.remove("active"));
-        subSectionGroups.forEach((g) => g.classList.remove("active"));
-        section.classList.add("active");
-        const group = document.querySelector(`.sub-section-group[data-for="${section.dataset.sub}"]`);
-        if (group) group.classList.add("active");
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".section");
+        const subSectionGroups = document.querySelectorAll(".sub-section-group");
+        const subSectionTitles = document.querySelectorAll(".sub-section-title");
+
+        // Menu Navigation
+        sections.forEach((section) => {
+          section.addEventListener("click", () => {
+            sections.forEach((s) => s.classList.remove("active"));
+            subSectionGroups.forEach((g) => g.classList.remove("active"));
+            section.classList.add("active");
+            const group = document.querySelector(`.sub-section-group[data-for="${section.dataset.sub}"]`);
+            if (group) group.classList.add("active");
+          });
+        });
+
+        // Sub-section switching
+        subSectionTitles.forEach((title) => {
+          title.addEventListener("click", () => {
+            const group = title.closest(".sub-section-group");
+            group.querySelectorAll(".sub-section").forEach(s => s.classList.remove("sub-active"));
+            title.parentElement.classList.add("sub-active");
+          });
+        });
       });
-    });
-
-    // Sub-section switching
-    subSectionTitles.forEach((title) => {
-      title.addEventListener("click", () => {
-        const group = title.closest(".sub-section-group");
-        group.querySelectorAll(".sub-section").forEach(s => s.classList.remove("sub-active"));
-        title.parentElement.classList.add("sub-active");
-      });
-    });
-  });
-</script>
+    </script>
 
 
     <!----------  Skills Toggle ------------>
@@ -1089,7 +1041,7 @@
     <!----------  Project Toggle ------------>
     <script>
       let currentPosition = 0;
-      const totalProjects = 6;
+      const totalProjects = 5;
       const carousel = document.getElementById('carousel');
       const currentProjectElement = document.getElementById('current-project');
       const totalProjectsElement = document.getElementById('total-projects');
