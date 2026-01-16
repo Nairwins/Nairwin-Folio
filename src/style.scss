@@ -1404,12 +1404,22 @@
     font-size: 0.75rem;
   }
 
+  /* Arrows */
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    background: none;
+    border: none;
+    width: 7vmin;
+    height: 7vmin;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+  }
 
   .nav-arrow.prev { 
-    left: 0px;
+    left: -15px;
     font-size: 1.2rem; }
   .nav-arrow.next { 
-    right: 0px;
+    right: -15px;
     font-size: 1.2rem; }
 
   /* Adjust 3D transforms for mobile */

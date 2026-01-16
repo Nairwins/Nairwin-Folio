@@ -151,22 +151,19 @@ scene.background = skybox;
 skybox.rotationY = 45;
 
 const Textures = {
-  1: { day: "textures/world/1_Nairs.webp", night: "textures/world/1_Nairs.webp" },
-  2: { day: "textures/world/2_Figurines.webp", night: "textures/world/2_Figurines.webp" },
-  3: { day: "textures/world/3_Plushies.webp", night: "textures/world/3_Plushies.webp" },
-  4: { day: "textures/world/4_Toolbox.webp", night: "textures/world/4_Toolbox.webp" },
-  5: { day: "textures/world/5_Rog.webp", night: "textures/world/5_Rog.webp" },
-  6: { day: "textures/world/6_Table.webp", night: "textures/world/6_Table.webp" },
-  7: { day: "textures/world/7_Katana.webp", night: "textures/world/7_Katana.webp" },
-  8: { day: "textures/world/8_Treasure.webp", night: "textures/world/8_Treasure.webp" },
-  9: { day: "textures/world/9_Desk.webp", night: "textures/world/9_Desk.webp" },
-  10: { day: "textures/world/10_Signs.webp", night: "textures/world/10_Signs.webp" },
-  11: { day: "textures/world/11_Escanor.webp", night: "textures/world/11_Escanor.webp" },
-  12: { day: "textures/world/12_Tree.webp", night: "textures/world/12_Tree.webp" },
-  13: { day: "textures/world/13_Boombox.webp", night: "textures/world/13_Boombox.webp" },
+  1:  { day: "textures/world/1_Nairs.webp", night: "textures/world/1_Nairs.webp" },
+  2:  { day: "textures/world/2_Figurines.webp", night: "textures/world/2_Figurines.webp" },
+  3:  { day: "textures/world/3_Plushies.webp", night: "textures/world/3_Plushies.webp" },
+  4:  { day: "textures/world/4_Toolbox.webp", night: "textures/world/4_Toolbox.webp" },
+  5:  { day: "textures/world/5_Rog.webp", night: "textures/world/5_Rog.webp" },
+  6:  { day: "textures/world/6_Treasure.webp", night: "textures/world/6_Treasure.webp" },
+  7:  { day: "textures/world/7_Desk.webp", night: "textures/world/7_Desk.webp" },
+  8:  { day: "textures/world/8_Escanor.webp", night: "textures/world/8_Escanor.webp" },
+  9:  { day: "textures/world/9_Signs.webp", night: "textures/world/9_Signs.webp" },
+  10: { day: "textures/world/10_WorldTree.webp", night: "textures/world/10_WorldTree.webp" },
 }
 
-const loadedTexture = { day: {}, night: {} }
+const loadedTexture = { day: {}, night: {} };
 
 // OPTIMIZATION: Initial load only Day
 Object.entries(Textures).forEach(([key, path]) => {
@@ -217,7 +214,7 @@ let screenTexture = null;
 
 function loadVideo() {
   ScreenVideo = document.createElement("video");
-  ScreenVideo.src = "textures/Acheron2.mp4";
+  ScreenVideo.src = "textures/Acheron.mp4";
   ScreenVideo.muted = true;
   ScreenVideo.loop = true;
   ScreenVideo.autoplay = true;
